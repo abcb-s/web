@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yakoko`s video</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    header {
+      height: 80px;
+    }
+    iframe {
+      width: 100%;
+      height: calc(100% - 160px); /* 80px header + ~80px link-row */
+      border: none;
+    }
+    .link-row {
+      display: flex;
+      gap: 20px;
+      padding: 10px;
+      justify-content: center;
+      margin-top: 80px;
+      background-color: white;
+      z-index: 10;
+    }
+    .link-row h2 {
+      margin: 0;
+      padding-top: 5px;
+    }
+  </style>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<header>
+  <nav id="top-nav" class="image-text-container">
+    <div class="top-image">
+      <ul class="horizontal-menu">
+        <li><a href="Home.html">홈</a></li>
+        <li><a href="Profile.html">프로필</a></li>
+        <li><a href="Video.html">동영상</a></li>
+        <li><a href="Write.html">게시판</a></li>
+      </ul>
+      <img src="https://yt3.googleusercontent.com/56p5IuF8e4_r6wQihpu1NDmWvBG25CYLjr9Yrde1MZWbsp0iN2vm8AK1lyC1I-7rNMi3MnlybDQ=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="성녀님 사진">
+    </div>
+  </nav>
+</header>
+<div class="link-row">
+  <h2><a href="https://www.youtube.com/@0630">유튜브 바로가기</a></h2>
+  <h2><a href="https://chzzk.naver.com/e7b11b2af4a27928e5715420ec9166af">치지직 바로가기</a></h2>
+  <h2><a href="https://www.instagram.com/yacocos2">인스타 바로가기</a></h2>
+  <h2><a href="https://x.com/yacocoS2">트위터 바로가기</a></h2>
+</div>
+<iframe
+  src="https://www.youtube.com/embed/79xMoh-YVr0?autoplay=1&controls=0&disablekb=1&modestbranding=1&rel=0"
+  allow="autoplay"
+  allowfullscreen>
+</iframe>
+
+
+</body>
+</html>
