@@ -3,56 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <title>yakoko`s profile</title>
-  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" th:href="@{/style.css}" />
   <style>
-    .image-text-overlay {
+    #top-nav {
       position: relative;
-      display: inline-block;
-      width: 100%;
-    }
-    .image-text-overlay img {
-    width: 100%;
-    height: auto;
-    display: block;
+      z-index: 1000;
+      background-color: transparent;
     }
 
-    .image-text-overlay h2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5); /* optional: for contrast */
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 1.2em;
+    .top-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .top-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .horizontal-menu {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 12px 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      z-index: 1001;
+    }
+
+    .horizontal-menu li {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .horizontal-menu a {
+      color: white;
+      text-decoration: none;
+    }
+    .image-text-overlay {
+      position: relative;
+      background-image: url("https://i.namu.wiki/i/p0qXvrXfuKr0U8kL83mR_1epY8CcjQ8lhTKhollMMzEdeGY_-JL6gRYVkUignVKuJnsTP3CY97s9JuoN804P3g.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 60px 20px;
+      color: white;
+      text-shadow: 1px 1px 2px black;
     }
     .image-text-overlay h2 {
-      max-height: 600px;
-      overflow-y: auto;
+      margin-top: 1rem;
+    }
+    #top-nav {
+      position: relative;
+      z-index: 1000;
+      background-color: transparent;
+    }
+
+    .top-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .top-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .horizontal-menu {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 12px 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      z-index: 1001;
+    }
+
+    .horizontal-menu li {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .horizontal-menu a {
+      color: white;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 <header>
-  <nav id="top-nav" class="image-text-container">
+  <nav id="top-nav">
     <div class="top-image">
-      <ul class="horizontal-menu">
-        <li><a href="Home.html">홈</a></li>
-        <li><a href="Profile.html"> 프로필</a></li>
-        <li><a href="Video.html"> 동영상</a></li>
-        <li><a href="Write.html"> 게시판</a></li>
-      </ul>
-      <img src="https://yt3.googleusercontent.com/56p5IuF8e4_r6wQihpu1NDmWvBG25CYLjr9Yrde1MZWbsp0iN2vm8AK1lyC1I-7rNMi3MnlybDQ=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="성녀님 사진" >
+      <img src="https://yt3.googleusercontent.com/56p5IuF8e4_r6wQihpu1NDmWvBG25CYLjr9Yrde1MZWbsp0iN2vm8AK1lyC1I-7rNMi3MnlybDQ=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="성녀님 사진" />
     </div>
-
+    <ul class="horizontal-menu">
+      <li><a th:href="@{/}">홈</a></li>
+      <li><a th:href="@{/profile}">프로필</a></li>
+      <li><a th:href="@{/video}">동영상</a></li>
+      <li><a th:href="@{/comments}">게시판</a></li>
+    </ul>
   </nav>
-
 </header>
 
 <div class="image-text-overlay">
-  <img src="../static/image/yakoko.jpeg" style="opacity: 20%" class="full-width-image" alt="성녀님사진">
   <h2>---------------------------------정보---------------------------------<br>
     성별:여성<br>
     생년월일:1991년 6월 30일<br>
@@ -98,9 +163,7 @@
     [Studio HG] 메탈릭 차일드 2차 트레일러 영상 성우<br>
     [투스라이프] 투네이션 고객센터 ARS 성우<br>
     각종 이러닝 외 다수<br>
-
   </h2>
-
 </div>
 </body>
 

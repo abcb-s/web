@@ -3,24 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Yakoko fan site</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <style>
+        #top-nav {
+        position: relative;
+        z-index: 1000;
+        background-color: transparent;
+        }
+
+        .top-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        .top-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        }
+
+        .horizontal-menu {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin: 0;
+        padding: 12px 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        z-index: 1001;
+        }
+
+        .horizontal-menu li {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+        }
+
+        .horizontal-menu a {
+        color: white;
+        text-decoration: none;
+        }
+    </style>
+
 </head>
 <body>
 <header>
-    <nav id="top-nav" class="image-text-container">
+    <nav id="top-nav">
         <div class="top-image">
-            <ul class="horizontal-menu">
-                <li><a href="Home.html">홈</a></li>
-                <li><a href="Profile.html"> 프로필</a></li>
-                <li><a href="Video.html"> 동영상</a></li>
-                <li><a href="Write.html"> 게시판</a></li>
-            </ul>
-            <img src="https://yt3.googleusercontent.com/56p5IuF8e4_r6wQihpu1NDmWvBG25CYLjr9Yrde1MZWbsp0iN2vm8AK1lyC1I-7rNMi3MnlybDQ=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="성녀님 사진" >
+            <img src="https://yt3.googleusercontent.com/56p5IuF8e4_r6wQihpu1NDmWvBG25CYLjr9Yrde1MZWbsp0iN2vm8AK1lyC1I-7rNMi3MnlybDQ=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="성녀님 사진" />
         </div>
-
+        <ul class="horizontal-menu">
+            <li><a th:href="@{/}">홈</a></li>
+            <li><a th:href="@{/profile}">프로필</a></li>
+            <li><a th:href="@{/video}">동영상</a></li>
+            <li><a th:href="@{/comments}">게시판</a></li>
+        </ul>
     </nav>
-
-</header>
+</header></header>
 
     <img class="full-width-image" src="https://i.namu.wiki/i/m8UuVQmfOleqbFmJXGMHTheDLY4xFBIx1eB0j5Pki8Xn5x09ClyHp73E9fHT3L9Aw1NU_pVLNHNNqIn_1BV--kd20NpPY5rTR_46W8C0B24U--h5zPw7Kr1tfd6e3BRcL1BztQLhA3d3d1H00RHnnQ.webp" alt="성녀님 사진" style="opacity: 70% ">
 

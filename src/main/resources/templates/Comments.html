@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <style>
+        #todo-list {
+            width: 60%;
+            margin: 80px auto 30px auto; /* 30px 추가 여백 */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        #todo-list form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #todo-list input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #todo-list button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #todo-list button:hover {
+            background-color: #0056b3;
+        }
+
+        #todo-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #todo-list li {
+            padding: 10px;
+            margin-bottom: 8px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #top-nav {
+            position: relative;
+            z-index: 1000;
+            background-color: transparent;
+        }
+
+        .top-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .horizontal-menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 0;
+            padding: 12px 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            z-index: 1001;
+        }
+
+        .horizontal-menu li {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .horizontal-menu a {
+            color: white;
+            text-decoration: none;
+        }
+        body {
+            background-image: url("https://i.namu.wiki/i/p0qXvrXfuKr0U8kL83mR_1epY8CcjQ8lhTKhollMMzEdeGY_-JL6gRYVkUignVKuJnsTP3CY97s9JuoN804P3g.webp");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav id="top-nav">
+        <div class="top-image">
+            <img src="https://yt3.googleusercontent.com/56p5IuF8e4_r6wQihpu1NDmWvBG25CYLjr9Yrde1MZWbsp0iN2vm8AK1lyC1I-7rNMi3MnlybDQ=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="성녀님 사진" />
+        </div>
+        <ul class="horizontal-menu">
+            <li><a th:href="@{/}">홈</a></li>
+            <li><a th:href="@{/profile}">프로필</a></li>
+            <li><a th:href="@{/video}">동영상</a></li>
+            <li><a th:href="@{/comments}">게시판</a></li>
+        </ul>
+    </nav>
+</header>
+    <div id="todo-list">
+        <form th:action="@{/comments}" method="post">
+            <input type="text" name="content"/>
+            <button type="submit">입력</button>
+        </form>
+        <table>
+            <thead>
+            <tr>
+                <th>내용</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="comment : ${comments}">
+                <td th:text="${comment.content}">내용</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
